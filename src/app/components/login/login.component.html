@@ -1,0 +1,71 @@
+<div class="register-form">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tbody>
+                <tr>
+        
+            
+                <td class="td-left">
+                <span>Username*</span>
+                </td>
+                <td  class="td-right">
+                <input
+                    [(ngModel)]="login.username"
+                    name="username"
+                    type="text"
+                    #username="ngModel"
+                    [ngClass]="{ 'is-invalid': username.invalid && (username.dirty || username.touched) }"
+                    required
+                    minlength="6"
+                    maxlength="20"/>
+                </td>
+                <div *ngIf="username.invalid && (username.dirty || username.touched) ">
+                    <div class="alert" *ngIf="username?.hasError('required')">Username is required</div>
+                    <div class="alert" *ngIf="username?.hasError('minlength')">
+                    Username must be at least 6 characters
+                    </div>
+                    <div class="alert" *ngIf="username?.hasError('maxlength')">
+                    Username must not exceed 20 characters
+                    </div>
+                </div>
+            
+        
+</tr>
+<tr>
+        
+                <td  class="td-left">
+                <span>Password* </span>
+                </td>
+                <td  class="td-right">
+                <input
+                [(ngModel)]="login.password"
+                type="password"
+                name="password"
+                [ngClass]="{ 'is-invalid': password.invalid && (password.dirty || password.touched) }"
+                #password="ngModel"
+                required
+                minlength="6"
+                maxlength="20"
+                />
+                </td>
+                <div *ngIf="password.invalid && (password.dirty || password.touched) ">
+                    <div class="alert" *ngIf="password?.hasError('required')">Password is required</div>
+                    <div class="alert" *ngIf="password?.hasError('minlength')">
+                    Password must be at least 6 characters
+                    </div>
+                    <div class="alert" *ngIf="password?.hasError('maxlength')">
+                    Password must not exceed 40 characters
+                    </div>
+                </div>
+         
+    </tr>
+</tbody>
+</table>
+        <div >
+            <div style="position: relative;margin: auto;width: fit-content;">
+                <button type="submit" [disabled]="(password.invalid || username.invalid)">Login</button>
+                <button type="button" (click)="onReset()">Clear</button>
+            </div>
+        </div>
+    </form>
+</div>

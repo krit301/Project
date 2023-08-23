@@ -1,0 +1,188 @@
+<div class="register-form">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div style="width:fit-content; text-align: end;">
+            <div style="margin:1rem">
+                <span style="margin-right: 1rem;">First Name<label style="color: red;">*</label></span> 
+                <input
+                [(ngModel)]="userData.firstName"
+                name="firstName"
+                type="text"
+                #firstName="ngModel"
+                [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched) }"
+                required
+                minlength="6"
+                maxlength="20"
+                style="margin-right: 1rem;">
+            </div>
+            <div style="margin:1rem">
+                <span style="margin-right: 1rem;">Email Id<label style="color: red;">*</label></span> 
+                <input
+                [(ngModel)]="userData.emailId"
+                name="emailId"
+                type="email"
+                ngModel email
+                required pattern="^[\w-\.]+@iuroptumconnect.onmicrosoft.com$"
+                #emailId="ngModel"
+                [ngClass]="{ 'is-invalid': emailId.invalid && (emailId.dirty || emailId.touched) }"
+                required
+                minlength="6"
+                style="margin-right: 1rem;">
+            </div>
+            <!-- <img src="" *ngIf> -->
+            <!-- <img src=""> -->
+            <div style="margin:1rem">
+                <span style="margin-right: 1rem;">
+                    <label>Team<label style="color: red;">*</label></label>
+                </span> 
+            <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.team"
+                name="team"
+                #team="ngModel"
+                [ngClass]="{ 'is-invalid': team.invalid && (team.dirty || team.touched) }"
+                required>
+                <option default ></option>
+                <option value="AMS">AMS</option>
+                <option value="Command Center">Command Center</option>
+                <option value="Devops">Devops</option>
+                <option value="Service Desk">Service Desk</option>
+            </select><br></div>
+            <div style="margin:1rem">
+                <span style="margin-right: 1rem;">
+                    <label>Location<label style="color: red;">*</label></label>
+            </span> 
+            <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.location"
+            name="location"
+            #location="ngModel"
+            [ngClass]="{ 'is-invalid': location.invalid && (location.dirty || location.touched) }"
+            required>
+                <option default ></option>
+                <option value="Bengalore">Bengalore</option>
+                <option value="Gurgaon">Gurgaon</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Noida">Noida</option>
+            </select><br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Password<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;" [(ngModel)]="userData.password"
+                name="password"
+                type="text"
+                #password="ngModel"
+                required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                [ngClass]="{ 'is-invalid': password.invalid && (password.dirty || password.touched) }"
+                required
+                minlength="8"
+                maxlength="30"
+                style="margin-right: 1rem;">
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Request Email Provisioning<label style="color: red;">*</label></label> 
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.reqEmailProvisioning"
+            name="reqEmailProvisioning"
+            #reqEmailProvisioning="ngModel"
+            [ngClass]="{ 'is-invalid': reqEmailProvisioning.invalid && (reqEmailProvisioning.dirty || reqEmailProvisioning.touched) }"
+            required>
+                <option default ></option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select><br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Grade<label style="color: red;">*</label></label> 
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.grade"
+            name="grade"
+            #grade="ngModel"
+            [ngClass]="{ 'is-invalid': grade.invalid && (grade.dirty || grade.touched) }"
+            required>
+                <option default ></option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+            </select><br></div>
+        </div>
+        <div style="width:fit-content; margin-left: 400px; text-align: -webkit-right; margin-top: -270px;">
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Last Name<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.lastName"
+                name="lastName"
+                type="text"
+                #lastName="ngModel"
+                [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched) }"
+                required
+                minlength="6"
+                maxlength="20">
+                <br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Role<label style="color: red;">*</label></label> 
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.role"
+            name="role"
+            #role="ngModel"
+            [ngClass]="{ 'is-invalid': role.invalid && (role.dirty || role.touched) }"
+            required>
+                <option default ></option>
+                <option value="Developer">Developer</option>
+                <option value="Tester">Tester</option>
+            </select><br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Start Date<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;height: 23px; width:158px;" 
+                [(ngModel)]="userData.dob"
+                name="dob"
+                type="date"
+                #dob="ngModel"
+                [ngClass]="{ 'is-invalid': dob.invalid && (dob.dirty || dob.touched) }"
+                required/>
+                <br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Client<label style="color: red;">*</label></label> 
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.client"
+            name="client"
+            #client="ngModel"
+            [ngClass]="{ 'is-invalid': client.invalid && (client.dirty || client.touched) }"
+            required>
+                <option default ></option>
+                <option value="Triple S">Triple S</option>
+            </select><br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Manager Email Id<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.managerEmailId"
+                name="managerEmailId"
+                type="email"
+                ngModel email
+                #managerEmailId="ngModel"
+                [ngClass]="{ 'is-invalid': managerEmailId.invalid && (managerEmailId.dirty || managerEmailId.touched) }"
+                required
+                minlength="6"
+                maxlength="50">
+                <br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Request VDI Provisioning<label style="color: red;">*</label></label>
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.reqVdiProvisioning"
+            name="reqVdiProvisioning"
+            #reqVdiProvisioning="ngModel"
+            [ngClass]="{ 'is-invalid': reqVdiProvisioning.invalid && (reqVdiProvisioning.dirty || reqVdiProvisioning.touched) }"
+            required>
+                <option default ></option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select><br></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Phone No.<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.phone"
+                name="phone"
+                type="text"
+                #phone="ngModel"
+                placeholder="+910000000000"
+                [ngClass]="{ 'is-invalid': phone.invalid && (phone.dirty || phone.touched) }"
+                required
+                pattern="^[+]91(9|8|7)\d{9}$"
+                maxlength="13">
+                <br></div>
+            
+        </div>
+        <br>
+        <div style="text-align: center;">
+        <button type="reset" >Clear</button>
+        <button type="submit" [disabled]="f.invalid">Submit</button>
+        </div>
+    </form> 
+</div>

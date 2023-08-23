@@ -1,0 +1,122 @@
+<div class="register-form">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div style="width:fit-content; text-align: end;margin-left: 50px;">
+            <div style="margin:1rem"><span style="margin-right: 1rem;">MS ID<label style="color: red;">*</label></span> 
+                <input [(ngModel)]="userData.msId"
+                name="msId"
+                type="text"
+                #msId="ngModel"
+                [ngClass]="{ 'is-invalid': msId.invalid && (msId.dirty || msId.touched) }"
+                required
+                minlength="3"
+                maxlength="8"
+                style="margin-right: 1rem;">
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Manager<label style="color: red;">*</label></span> 
+                <input [(ngModel)]="userData.manager"
+                name="manager"
+                type="text"
+                #manager="ngModel"
+                [ngClass]="{ 'is-invalid': manager.invalid && (manager.dirty || manager.touched) }"
+                required
+                minlength="3"
+                maxlength="20"
+                style="margin-right: 1rem;">
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Type of Revocation<label style="color: red;">*</label></label>
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.revocationType"
+            name="revocationType"
+            #revocationType="ngModel"
+            [ngClass]="{ 'is-invalid': revocationType.invalid && (revocationType.dirty || revocationType.touched) }"
+            required>
+                <option default ></option>
+                <option value="Complete">Complete</option>
+                <option value="Partial">Partial</option>
+            </select></div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">VDI Username<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.vdiUsername"
+                name="vdiUsername"
+                type="text"
+                #vdiUsername="ngModel"
+                [ngClass]="{ 'is-invalid': vdiUsername.invalid && (vdiUsername.dirty || vdiUsername.touched) }"
+                required
+                minlength="3"
+                maxlength="20">
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>HRBP<label style="color: red;">*</label></label>
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.hrbp"
+            name="hrbp"
+            #hrbp="ngModel"
+            [ngClass]="{ 'is-invalid': hrbp.invalid && (hrbp.dirty || hrbp.touched) }"
+            required>
+                <option default ></option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+            </select><br></div>
+        </div>
+        <div style="width:fit-content; margin-left: 450px; text-align: -webkit-right; margin-top: -192.5px;">
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Email ID<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.emailId"
+                name="emailId"
+                type="email"
+                #emailId="ngModel"
+                required pattern="^[\w-\.]+@iuroptumconnect.onmicrosoft.com$"
+                [ngClass]="{ 'is-invalid': emailId.invalid && (emailId.dirty || emailId.touched) }"
+                required
+                minlength="6"> 
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Manager’s Email ID<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.managerEmailId"
+                name="managerEmailId"
+                type="email"
+                #managerEmailId="ngModel"
+                [ngClass]="{ 'is-invalid': managerEmailId.invalid && (managerEmailId.dirty || managerEmailId.touched) }"
+                required
+                minlength="3"
+                maxlength="30"> 
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Entitled VDI<label style="color: red;">*</label></span>
+                <input style="margin-right: 1rem;"
+                [(ngModel)]="userData.entitledVdi"
+                name="entitledVdi"
+                type="text"
+                #entitledVdi="ngModel"
+                [ngClass]="{ 'is-invalid': entitledVdi.invalid && (entitledVdi.dirty || entitledVdi.touched) }"
+                required
+                minlength="3"
+                maxlength="20">
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;">Date of Revocation<label style="color: red;">*</label></span> 
+                <input style="margin-right: 1rem;height: 23px; width:158px;"
+                [(ngModel)]="userData.dor"
+                name="dor"
+                type="date"
+                #dor="ngModel"
+                [ngClass]="{ 'is-invalid': dor.invalid && (dor.dirty || dor.touched) }"
+                required>
+            </div>
+            <div style="margin:1rem"><span style="margin-right: 1rem;"><label>Location<label style="color: red;">*</label></label>
+            </span> <select style="margin-right: 1rem;height: 23px; width:158px;"
+            [(ngModel)]="userData.location"
+            name="location"
+            #location="ngModel"
+            [ngClass]="{ 'is-invalid': location.invalid && (location.dirty || location.touched) }"
+            required>
+                <option default ></option>
+                <option value="Bengalore">Bengalore</option>
+                <option value="Gurgaon">Gurgaon</option>
+                <option value="Hydrabad">Hydrabad</option>
+                <option value="Noida">Noida</option>
+            </select><br></div></div>
+        <br>
+        <div style="text-align: center;">
+            <button type="reset" >Clear</button>
+            <button type="submit" [disabled]="f.invalid">Submit</button>
+        </div>
+    </form> 
+</div>
