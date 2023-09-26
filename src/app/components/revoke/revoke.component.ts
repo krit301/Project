@@ -39,7 +39,7 @@ export class RevokeComponent implements OnInit{
                 }
             },
             (error)=>{
-                
+                console.log(error);
             });
         //subscribe to the api and on success response show success result else the error
         // this.alertMessage();
